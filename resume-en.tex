@@ -1,0 +1,272 @@
+%%%%%%%%%%%%%%%%%
+% This is an sample CV template created using altacv.cls
+% (v1.7, 9 August 2023) written by LianTze Lim (liantze@gmail.com). Compiles with pdfLaTeX, XeLaTeX and LuaLaTeX.
+%
+%% It may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%%    http://www.latex-project.org/lppl.txt
+%% and version 1.3 or later is part of all distributions of LaTeX
+%% version 2003/12/01 or later.
+%%%%%%%%%%%%%%%%
+
+%% Use the "normalphoto" option if you want a normal photo instead of cropped to a circle
+% \documentclass[10pt,a4paper,normalphoto]{altacv}
+
+\documentclass[10pt,a4paper,ragged2e,withhyper]{altacv}
+%% AltaCV uses the fontawesome5 and packages.
+%% See http://texdoc.net/pkg/fontawesome5 for full list of symbols.
+
+% Change the page layout if you need to
+\geometry{left=1.25cm,right=1.25cm,top=1.5cm,bottom=1.5cm,columnsep=1.2cm}
+
+% The paracol package lets you typeset columns of text in parallel
+\usepackage{paracol}
+
+% Change the font if you want to, depending on whether
+% you're using pdflatex or xelatex/lualatex
+% WHEN COMPILING WITH XELATEX PLEASE USE
+% xelatex -shell-escape -output-driver="xdvipdfmx -z 0" sample.tex
+\ifxetexorluatex
+  % If using xelatex or lualatex:
+  \setmainfont{Roboto Slab}
+  \setsansfont{Lato}
+  \renewcommand{\familydefault}{\sfdefault}
+\else
+  % If using pdflatex:
+  \usepackage[rm]{roboto}
+  \usepackage[defaultsans]{lato}
+  % \usepackage{sourcesanspro}
+  \renewcommand{\familydefault}{\sfdefault}
+\fi
+
+% Change the colours if you want to
+\definecolor{SlateGrey}{HTML}{2E2E2E}
+\definecolor{LightGrey}{HTML}{666666}
+\definecolor{DarkPastelRed}{HTML}{450808}
+\definecolor{PastelRed}{HTML}{8F0D0D}
+\definecolor{GoldenEarth}{HTML}{E7D192}
+\colorlet{name}{black}
+\colorlet{tagline}{PastelRed}
+\colorlet{heading}{DarkPastelRed}
+\colorlet{headingrule}{GoldenEarth}
+\colorlet{subheading}{PastelRed}
+\colorlet{accent}{PastelRed}
+\colorlet{emphasis}{SlateGrey}
+\colorlet{body}{LightGrey}
+
+% Change some fonts, if necessary
+\renewcommand{\namefont}{\Huge\rmfamily\bfseries}
+\renewcommand{\personalinfofont}{\footnotesize}
+\renewcommand{\cvsectionfont}{\LARGE\rmfamily\bfseries}
+\renewcommand{\cvsubsectionfont}{\large\bfseries}
+
+
+% Change the bullets for itemize and rating marker
+% for \cvskill if you want to
+\renewcommand{\cvItemMarker}{{\small\textbullet}}
+\renewcommand{\cvRatingMarker}{\faCircle}
+% ...and the markers for the date/location for \cvevent
+% \renewcommand{\cvDateMarker}{\faCalendar*[regular]}
+% \renewcommand{\cvLocationMarker}{\faMapMarker*}
+
+
+% If your CV/résumé is in a language other than English,
+% then you probably want to change these so that when you
+% copy-paste from the PDF or run pdftotext, the location
+% and date marker icons for \cvevent will paste as correct
+% translations. For example Spanish:
+% \renewcommand{\locationname}{Ubicación}
+% \renewcommand{\datename}{Fecha}
+
+
+%% Use (and optionally edit if necessary) this .tex if you
+%% want to use an author-year reference style like APA(6)
+%% for your publication list
+% \input{pubs-authoryear.tex}
+
+%% Use (and optionally edit if necessary) this .tex if you
+%% want an originally numerical reference style like IEEE
+%% for your publication list
+\input{pubs-num.tex}
+
+%% sample.bib contains your publications
+\addbibresource{sample.bib}
+
+%%%
+\newcommand{\CompanyName}{\hspace{4.5em}}
+%%%
+
+\begin{document}
+
+\name{Jakub A. Gramsz}
+\tagline{DevOps Architect / Software Engineer}
+%% You can add multiple photos on the left or right
+% \photoR{2.8cm}{Globe_High}
+% \photoL{2.5cm}{Yacht_High,Suitcase_High}
+\photoR{2.8cm}{JakubGramsz_sq}
+
+\personalinfo{%
+  % Not all of these are required!
+  \email{jakub@gramsz.com}
+  \phone{+48 691 777 885}
+  \mailaddress{ul. Kokosowa 3/56, 54-060 Wrocław}
+  \location{Polska, POLAND}
+  \homepage{gramsz.com}
+  \linkedin{jakub-gramsz-376223101}
+  \github{olorin37}
+  %\orcid{0000-0000-0000-0000}
+  %% You can add your own arbitrary detail with
+  %% \printinfo{symbol}{detail}[optional hyperlink prefix]
+  % \printinfo{\faPaw}{Hey ho!}[https://example.com/]
+
+  %% Or you can declare your own field with
+  %% \NewInfoFiled{fieldname}{symbol}[optional hyperlink prefix] and use it:
+  % \NewInfoField{gitlab}{\faGitlab}[https://gitlab.com/]
+  % \gitlab{your_id}
+  %%
+  %% For services and platforms like Mastodon where there isn't a
+  %% straightforward relation between the user ID/nickname and the hyperlink,
+  %% you can use \printinfo directly e.g.
+  % \printinfo{\faMastodon}{@username@instace}[https://instance.url/@username]
+  %% But if you absolutely want to create new dedicated info fields for
+  %% such platforms, then use \NewInfoField* with a star:
+  % \NewInfoField*{mastodon}{\faMastodon}
+  %% then you can use \mastodon, with TWO arguments where the 2nd argument is
+  %% the full hyperlink.
+  % \mastodon{@username@instance}{https://instance.url/@username}
+}
+
+\makecvheader
+%% Depending on your tastes, you may want to make fonts of itemize environments slightly smaller
+% \AtBeginEnvironment{itemize}{\small}
+
+%% Set the left/right column width ratio to 6:4.
+\columnratio{0.5}
+
+% Start a 2-column paracol. Both the left and right columns will automatically
+% break across pages if things get too long.
+\begin{paracol}{2}
+\cvsection{Experience}
+
+\cvevent{DevOps Architect / Technical Leader}{Nokia}{July 2017 -- current}{Wrocław}
+\begin{itemize}
+
+\item Design and development of the fully automated hardware tests for
+BTS Operations \& Maintenance embedded application. Scope of the automation:
+executing tests for each release candidate, preparing software package for testing,
+preparing hardware for software testing, infrastructure orchestrating and provisioning,
+configuration management. Technology: \cvtag{Bash,} \cvtag{Python,} \cvtag{Puppet,}
+\cvtag{Jenkins} behind \cvtag{nginx,} \cvtag{Groovy,} \cvtag{Gradle,} \cvtag{Hashicorp Vault,}
+\cvtag{GitLab,} \cvtag{Gerrit,} \cvtag{Terraform} with \cvtag{OpenStack,} \cvtag{Docker,}
+\cvtag{Podman,} \cvtag{jq,} \cvtag{GNU/Linux,} \cvtag{S3,} \cvtag{InfluxDB,} \cvtag{Elasticsearch,}
+\cvtag{Robot Framework.}
+
+\item Process aiding web application for testers has been introduced at some
+point. My responsibility was leading its development. Technology:
+\cvtag{Django,} \cvtag{JavaScript,} \cvtag{PostgreSQL} (self-deployed and with AWS RDS like in-house solution).
+
+\item Deployment and maintenance of the web application (written in \cvtag{Rust)}
+for helping in memory and CPU profiling of the embedded applicaton.
+
+\item The post involved hosting planning and technical meetings, planning work for
+team members, constant code review, tasks refinement, task
+prioritization for small team (of avg 4 members).
+
+\end{itemize}
+
+%\smalldivider
+\medskip
+
+\cvevent{DevOps Engineer}{Nokia}{Nov. 2015 -- June 2017}{Wrocław}
+\begin{itemize}
+\item 
+  Maintenance and development of the shell scripts allowing release testing
+  on hardware of the embedded application. Technology: \cvtag{Bash,} \cvtag{Nodejs,}
+  \cvtag{GNU/Linux,} \cvtag{Git,} \cvtag{Gitlab,} \cvtag{Jenkins,} \cvtag{Robot Framework,} \cvtag{Eucalyptus}
+  (AWS-compatible open source cloud), \cvtag{Ansible.}
+\item
+  The post required strong self-reliance.
+\end{itemize}
+
+%\smalldivider
+\medskip
+
+\cvevent{Integration Tools Developer}{Nokia}{Nov. 2014 -- Nov. 2015}{Wrocław}
+\begin{itemize}
+\item 
+  Implementing elements of the integration testing environment for embedded
+  application (the most complex one on BTS). Technology: \cvtag{Python,} \cvtag{Bash,} \cvtag{LXC,}
+  \cvtag{VirtalBox,} \cvtag{Debian,} \cvtag{Subversion,} \cvtag{JIRA}, \cvtag{TeamCity,} \cvtag{Eclipse.}
+\end{itemize}
+
+\medskip
+
+{\tiny I hereby authorise \CompanyName to process my personal data included in my job application for the needs of the recruitment process. I hereby authorise \CompanyName to process my personal data for the purposes of any future recruitment processes.}
+
+% use ONLY \newpage if you want to force a page break for
+% ONLY the current column
+\newpage
+
+%% Switch to the right column. This will now automatically move to the second
+%% page if the content is too long.
+\switchcolumn
+
+\cvsection{Philosophy}
+
+\begin{quote}
+``Less is more.''
+``Simple is better than Easy''
+\end{quote}
+
+\cvsection{Languages}
+
+\cvskill{English}{4}
+\divider
+
+\cvskill{Polish}{5} %% Supports X.5 values.
+
+%% Yeah I didn't spend too much time making all the
+%% spacing consistent... sorry. Use \smallskip, \medskip,
+%% \bigskip, \vspace etc to make adjustments.
+\medskip
+
+\cvsection{Education}
+
+\cvevent{M.Sc.\ in Computer Science}{Wrocław University of Technology}{Oct. 2012 -- June 2014}{Wrocław}
+  My specialization was \textit{Intelligent Information Systems.} Most courses was
+  related to the area, but I was also interested in programming languages
+  theory. I used \cvtag{Java,} \cvtag{C\#,} \cvtag{R} and \cvtag{MATLAB} for AI related projects and \cvtag{Haskell}
+  for the latter. I learned basics of lambda calculus. Basic usage \cvtag{git} for
+  some projects. Thesis title: “Monads in Programming Languages”,
+  typesetting made with \cvtag{LaTeX.}
+
+\divider
+
+\cvevent{B.Sc.\ in Astronomy}{Wrocław University}{Oct. 2010 -- June 2014}{Wrocław}
+  \textit{Dropped} \,
+  That was my try to meet my interest in cosmology and physics… Surprisingly,
+  I also had learn a lot about GNU/Linux shell (\cvtag{Bash,} \cvtag{AWK,} \cvtag{sed,} \cvtag{gnuplot)}
+  during processing CCD photometer measurements made through telescope.
+
+\divider
+
+\cvevent{B.Sc.\ in Computer Science}{Wrocław University of Technology}{Oct. 2008 -- June 2012}{Wrocław}
+  I had learned \cvtag{Java} (the main language for most projects), \cvtag{OCaml} (functional
+  paradigm features), \cvtag{Haskell,} \cvtag{MATLAB,} \cvtag{Python,} \cvtag{PL/SQL} (Oracle), \cvtag{C} (with \cvtag{MPI}
+  framework), \cvtag{MIPS Assembler} (the wrong choice of my mentors, as we know
+  now). I had attended to extended curses stream (it was a big dose of
+  mathematical and theoretical knowledge). Learning and using \cvtag{LaTeX} for
+  reports and presentations. Basic usage of \cvtag{Subversion.}
+
+\divider
+
+\cvevent{School}{}{before July 2008}{Jelenia Góra}
+  I made several small projects mixing together \cvtag{Delphi,} \cvtag{HTML,} \cvtag{PHP,} \cvtag{JavaScript,}
+  \cvtag{SQL} (MySQL).
+
+\end{paracol}
+
+
+\end{document}
