@@ -95,7 +95,11 @@
 \addbibresource{sample.bib}
 
 %%%
-\newcommand{\CompanyName}{\hspace{4.5em}}
+% Command \CompanyName should be defined during `pdflatex`
+% start, in following way:
+%
+%     > pdflatex "\newcommand{\CompanyName}{Selected company\;} \input{resume-en.tex}"
+%
 %%%
 
 \begin{document}
